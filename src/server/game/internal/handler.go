@@ -30,7 +30,7 @@ func handleTest(args []interface{}) {
 	a := args[1].(gate.Agent)
 
 	// 输出收到的消息的内容
-	log.Debug("hello %v", m.GetTest())
+	log.Debug("hello2 %v", m.GetTest())
 
 	retBuf := &msg.Test{
 		Test: *proto.String("client"),

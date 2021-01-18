@@ -1,0 +1,11 @@
+{
+    "LogLevel": "debug",
+    "LogPath": "",
+    "WSAddr": "localhost:3653",
+    "CertFile": "",
+    "KeyFile": "",
+    "TCPAddr": "localhost:8888",   
+    "MaxConnNum": 20000,
+    "ConsolePort": 3333,
+    "ProfilePath": ""
+}
