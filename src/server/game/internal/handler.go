@@ -93,7 +93,7 @@ func handleUserLogin(args []interface{}) {
 }
 
 func handleChatREQ(args []interface{}){
-	m := args[0].(*msg.ChatACK)
+	m := args[0].(*msg.ChatREQ)
 	a := args[1].(gate.Agent)
 	log.Debug("receive GetMessage message:%v", m.GetMessage())
 
