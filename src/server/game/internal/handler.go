@@ -17,6 +17,7 @@ func init() {
 	handler(&msg.Test{}, handleTest)
 	handler(&msg.UserLogin{}, handleUserLogin)
 	handler(&msg.UserRegister{}, handleUserRegister)
+	handler(&msg.ChatACK{}, handleChatACK)
 }
 
 func handler(m interface{}, h interface{}) {
@@ -89,4 +90,17 @@ func handleUserLogin(args []interface{}) {
 		ErrorInfo:"登陆失败，请稍后再试！",
 	}
 	a.WriteMsg(retBuf)
+}
+
+func handleChatACK(args []interface{}){
+	m := args[0].(*msg.ChatACK)
+	a := args[1].(gate.Agent)
+	log.Debug("receive UserLogin name=%v", m.GetMessage())
+
+	retBuf := &msg.Test{
+		Test: *proto.String("from chat message"),
+	}
+	// 给发送者回应一个 Test 消息
+	a.WriteMsg(retBuf)
+
 }
