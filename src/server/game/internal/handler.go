@@ -98,7 +98,7 @@ func handleChatREQ(args []interface{}){
 	log.Debug("receive GetMessage message:%v", m.GetMessage())
 
 	myInfo := &msg.UserBaseInfo{
-		Uid:11,
+		Uid:"11",
 		NickName:"张三",
 		Avatar:"sss.png",
 	}
