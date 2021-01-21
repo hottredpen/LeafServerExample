@@ -100,13 +100,13 @@ func handleChatREQ(args []interface{}){
 	myInfo := &msg.UserBaseInfo{
 		Uid:11,
 		NickName:"张三",
-		Avatar:"sss.png"
+		Avatar:"sss.png",
 	}
 	retBuf := &msg.ChatACK{
 		From : myInfo,
 		Message : m.GetMessage(),
 		ToId : m.GetToId(),
-		ToType : m.GetToType()
+		ToType : m.GetToType(),
 	}
 	// 给发送者回应一个 Test 消息
 	a.WriteMsg(retBuf)
