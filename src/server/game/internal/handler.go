@@ -17,7 +17,7 @@ func init() {
 	handler(&msg.Test{}, handleTest)
 	handler(&msg.UserLogin{}, handleUserLogin)
 	handler(&msg.UserRegister{}, handleUserRegister)
-	handler(&msg.ChatACK{}, handleChatACK)
+	handler(&msg.ChatREQ{}, handleChatREQ)
 }
 
 func handler(m interface{}, h interface{}) {
@@ -92,15 +92,22 @@ func handleUserLogin(args []interface{}) {
 	a.WriteMsg(retBuf)
 }
 
-func handleChatACK(args []interface{}){
+func handleChatREQ(args []interface{}){
 	m := args[0].(*msg.ChatACK)
 	a := args[1].(gate.Agent)
-	log.Debug("receive UserLogin name=%v", m.GetMessage())
+	log.Debug("receive GetMessage message:%v", m.GetMessage())
 
-	retBuf := &msg.Test{
-		Test: *proto.String("from chat message"),
+	myInfo := &msg.UserBaseInfo{
+		Uid:11,
+		NickName:"张三",
+		Avatar:"sss.png"
+	}
+	retBuf := &msg.ChatACK{
+		From : myInfo,
+		Message : m.GetMessage(),
+		ToId : m.GetToId(),
+		ToType : m.GetToType()
 	}
 	// 给发送者回应一个 Test 消息
 	a.WriteMsg(retBuf)
-
 }

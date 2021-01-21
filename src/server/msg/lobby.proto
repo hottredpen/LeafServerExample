@@ -39,19 +39,27 @@ message UserST {
     string Coin  =6;        // 金币
     // 其他的暂时不做定义
 }
-
+// 基础用户信息id头像昵称
 message UserBaseInfo{
     string Uid = 1;
     string NickName = 2;
     string Avatar = 3;
 }
-
+// 消息体 
+// 如 type=text  ContentJson={text:"你好"}
+// 如 type=image  ContentJson={image:"xxx.png",height:100,width:100}
+// 因为不同的type,ContentJson的结构不同，所以为字符串类型
 message ChatMessage{
     string Type = 1;
     string ContentJson = 2;
 }
-
-// 玩家聊天
+// 消息发送
+message ChatREQ {
+	ChatMessage Message=1;
+    uint32 ToId=2;
+    string ToType=3;
+}
+// 消息送达
 message ChatACK {
 	UserBaseInfo From=1;
 	ChatMessage  Message=2;

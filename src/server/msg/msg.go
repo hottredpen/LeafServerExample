@@ -13,5 +13,6 @@ func init() {
 	Processor.Register(&UserRegister{})
 	Processor.Register(&UserResult{})
 	Processor.Register(&UserST{})
+	Processor.Register(&ChatREQ{})
 	Processor.Register(&ChatACK{})
 }

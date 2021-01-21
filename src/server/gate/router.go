@@ -10,5 +10,5 @@ func init() {
 	msg.Processor.SetRouter(&msg.Test{}, game.ChanRPC)
 	msg.Processor.SetRouter(&msg.UserLogin{}, game.ChanRPC)
 	msg.Processor.SetRouter(&msg.UserRegister{}, game.ChanRPC)
-	msg.Processor.SetRouter(&msg.ChatACK{}, game.ChanRPC)
+	msg.Processor.SetRouter(&msg.ChatREQ{}, game.ChanRPC)
 }
